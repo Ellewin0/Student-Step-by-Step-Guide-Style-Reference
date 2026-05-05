@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Step-by-Step Guide Style Reference</title>
+  <meta name="description" content="A public-safe style reference for creating student-facing step-by-step guides for assistive technology, software, and learning tools.">
+  <style>
+    :root {
+      --page: #f8f4ea;
+      --paper: #ffffff;
+      --ink: #1f2937;
+      --muted: #4b5563;
+      --line: #1f2937;
+      --soft-blue: #dbeafe;
+      --soft-green: #dcfce7;
+      --soft-yellow: #fef3c7;
+      --soft-purple: #ede9fe;
+      --soft-coral: #ffe4e6;
+      --soft-grey: #f3f4f6;
+      --accent: #facc15;
+      --shadow: 6px 6px 0 rgba(31, 41, 55, 0.18);
+      --radius: 22px;
+      --font: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 1rem;
+      background: var(--ink);
+      color: white;
+      padding: 0.6rem 0.9rem;
+      z-index: 10;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .skip-link:focus { top: 0; }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 3px solid var(--line);
+      border-radius: 30px;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border: 3px solid var(--line);
+      border-radius: 999px;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .hero:before {
+      width: 180px;
+      height: 180px;
+      background: var(--soft-purple);
+      right: -50px;
+      top: -60px;
+    }
+
+    .hero:after {
+      width: 120px;
+      height: 120px;
+      background: var(--soft-green);
+      right: 110px;
+      bottom: -40px;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .kicker {
+      display: inline-block;
+      background: var(--soft-yellow);
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3, h4 { line-height: 1.2; }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin: 0 0 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      margin: 1rem 0 0.4rem;
+    }
+
+    p { margin: 0 0 1rem; }
+
+    a { color: #1d4ed8; font-weight: 700; }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 3px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+    }
+
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .contents-list {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contents-list a {
+      display: block;
+      padding: 0.8rem 1rem;
+      background: var(--soft-grey);
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .contents-list a:hover,
+    .contents-list a:focus {
+      background: var(--soft-blue);
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      background: var(--soft-blue);
+    }
+
+    .tag:nth-child(2n) { background: var(--soft-green); }
+    .tag:nth-child(3n) { background: var(--soft-purple); }
+    .tag:nth-child(4n) { background: var(--soft-yellow); }
+
+    .tip {
+      background: var(--soft-yellow);
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .tip strong { display: inline-block; margin-right: 0.2rem; }
+
+    .note {
+      background: var(--soft-blue);
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .warning {
+      background: var(--soft-coral);
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .example-box {
+      background: var(--soft-green);
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .placeholder {
+      background: #fff;
+      border: 3px dashed var(--line);
+      border-radius: 18px;
+      min-height: 130px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      margin: 1rem 0 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1rem 0;
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: white;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.85rem;
+      border-bottom: 2px solid var(--line);
+      border-right: 2px solid var(--line);
+    }
+
+    th:last-child, td:last-child { border-right: 0; }
+    tr:last-child td { border-bottom: 0; }
+
+    th {
+      background: var(--soft-purple);
+      font-weight: 800;
+    }
+
+    tbody tr:nth-child(even) td { background: #fafafa; }
+
+    .step-list {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .step-list li {
+      counter-increment: step;
+      background: white;
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem 1rem 1rem 4rem;
+      position: relative;
+    }
+
+    .step-list li:before {
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+      background: var(--soft-yellow);
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .do, .dont {
+      border: 3px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      background: white;
+    }
+
+    .do h4, .dont h4 { margin-top: 0; }
+    .do { background: var(--soft-green); }
+    .dont { background: var(--soft-coral); }
+
+    code, pre {
+      font-family: Consolas, Monaco, monospace;
+      background: #111827;
+      color: white;
+      border-radius: 14px;
+    }
+
+    code { padding: 0.1rem 0.35rem; }
+
+    pre {
+      padding: 1rem;
+      overflow-x: auto;
+      border: 3px solid var(--line);
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 780px) {
+      .span-4, .span-6, .span-8 { grid-column: span 12; }
+      .hero { border-radius: 22px; }
+      .do-dont { grid-template-columns: 1fr; }
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 3px solid var(--line); }
+      tr:last-child { border-bottom: 0; }
+      td {
+        border-right: 0;
+        display: grid;
+        grid-template-columns: 38% 1fr;
+        gap: 0.75rem;
+      }
+      td:before {
+        content: attr(data-label);
+        font-weight: 800;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-content">
+        <span class="kicker">Public-safe style reference</span>
+        <h1 id="page-title">Student Step-by-Step Guide Style Reference</h1>
+        <p>This page defines a reusable visual style, tone, and structure for creating student-facing guides about assistive technology, software, learning tools, and support processes.</p>
+        <p>Use this page as a style reference only. It does not contain organisation-specific procedures, internal policy, private information, or tool-specific instructions.</p>
+        <div class="tag-row" aria-label="Style keywords">
+          <span class="tag">Plain English</span>
+          <span class="tag">Step-by-step</span>
+          <span class="tag">Accessible</span>
+          <span class="tag">Student-friendly</span>
+          <span class="tag">Visual guide style</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main id="main">
+    <section class="card" aria-labelledby="contents-title">
+      <h2 id="contents-title">Contents</h2>
+      <ul class="contents-list">
+        <li><a href="#purpose">1.0 Purpose of this style reference</a></li>
+        <li><a href="#visual-style">2.0 Visual style rules</a></li>
+        <li><a href="#tone">3.0 Language and tone</a></li>
+        <li><a href="#structure">4.0 Default guide structure</a></li>
+        <li><a href="#components">5.0 Reusable components</a></li>
+        <li><a href="#accessibility">6.0 Accessibility rules</a></li>
+        <li><a href="#agent-instructions">7.0 Agent instructions</a></li>
+        <li><a href="#testing">8.0 Review checklist</a></li>
+      </ul>
+    </section>
+
+    <section id="purpose" class="card" aria-labelledby="purpose-title">
+      <h2 id="purpose-title">1.0 Purpose of this style reference</h2>
+      <h3>1. What is it?</h3>
+      <p>This style reference helps an agent create consistent student-facing guides from process notes, rough instructions, or tool information.</p>
+      <p>The agent should use this page to understand the preferred document style, not as a source of procedural content.</p>
+      <div class="warning">
+        <strong>Important:</strong> This page is a formatting and style reference only. It must not be treated as a source of support rules, eligibility criteria, service commitments, or technical procedures.
+      </div>
+    </section>
+
+    <section id="visual-style" class="card" aria-labelledby="visual-title">
+      <h2 id="visual-title">2.0 Visual style rules</h2>
+      <h3>1. Overall look and feel</h3>
+      <p>The style should feel clear, friendly, modern, practical, and easy to scan. It should support students who may be learning a tool for the first time or returning to instructions while completing a task.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Preferred style</th>
+            <th>How to use it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Element">Font</td>
+            <td data-label="Preferred style">Arial, Helvetica, or another clear sans-serif font</td>
+            <td data-label="How to use it">Use consistent font styling across title, headings, body text, tables, and callouts.</td>
+          </tr>
+          <tr>
+            <td data-label="Element">Page background</td>
+            <td data-label="Preferred style">Warm off-white or soft sand background</td>
+            <td data-label="How to use it">Use a calm background that makes content feel less dense.</td>
+          </tr>
+          <tr>
+            <td data-label="Element">Cards and sections</td>
+            <td data-label="Preferred style">White cards with dark rounded borders</td>
+            <td data-label="How to use it">Group content into clear blocks so students can focus on one part at a time.</td>
+          </tr>
+          <tr>
+            <td data-label="Element">Borders</td>
+            <td data-label="Preferred style">Dark, rounded, slightly bold borders</td>
+            <td data-label="How to use it">Use borders to separate sections, tables, tips, screenshots, and key reminders.</td>
+          </tr>
+          <tr>
+            <td data-label="Element">Colours</td>
+            <td data-label="Preferred style">Soft blue, green, yellow, purple, coral, and grey</td>
+            <td data-label="How to use it">Use colour gently for scanning and emphasis. Do not rely on colour alone to communicate meaning.</td>
+          </tr>
+          <tr>
+            <td data-label="Element">Spacing</td>
+            <td data-label="Preferred style">Generous spacing between sections</td>
+            <td data-label="How to use it">Avoid cramped text. Use short paragraphs and separate steps clearly.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2. Colour palette</h3>
+      <p>Use soft colours to organise information, reduce visual load, and make guides feel approachable.</p>
+      <div class="grid" aria-label="Colour palette examples">
+        <div class="card span-4" style="background: var(--soft-blue); margin-bottom:0;"><strong>Soft blue</strong><br>Use for notes or general information.</div>
+        <div class="card span-4" style="background: var(--soft-green); margin-bottom:0;"><strong>Soft green</strong><br>Use for examples, success states, or helpful options.</div>
+        <div class="card span-4" style="background: var(--soft-yellow); margin-bottom:0;"><strong>Soft yellow</strong><br>Use for tips and key reminders.</div>
+        <div class="card span-4" style="background: var(--soft-purple); margin-bottom:0;"><strong>Soft purple</strong><br>Use for table headers or section highlights.</div>
+        <div class="card span-4" style="background: var(--soft-coral); margin-bottom:0;"><strong>Soft coral</strong><br>Use sparingly for cautions or items requiring confirmation.</div>
+        <div class="card span-4" style="background: var(--soft-grey); margin-bottom:0;"><strong>Soft grey</strong><br>Use for neutral navigation blocks or placeholders.</div>
+      </div>
+    </section>
+
+    <section id="tone" class="card" aria-labelledby="tone-title">
+      <h2 id="tone-title">3.0 Language and tone</h2>
+      <h3>1. Tone</h3>
+      <p>Use a casual-professional tone that is supportive, calm, and confidence-building. The guide should help students feel capable, not overwhelmed.</p>
+      <div class="do-dont">
+        <div class="do">
+          <h4>Use</h4>
+          <ul>
+            <li>Plain English</li>
+            <li>Short steps</li>
+            <li>Supportive wording</li>
+            <li>Clear action verbs</li>
+            <li>Practical tips</li>
+          </ul>
+        </div>
+        <div class="dont">
+          <h4>Avoid</h4>
+          <ul>
+            <li>Jargon without explanation</li>
+            <li>Long dense paragraphs</li>
+            <li>Overpromising support</li>
+            <li>Unconfirmed contact details</li>
+            <li>Internal-only language</li>
+          </ul>
+        </div>
+      </div>
+      <h3>2. Writing style</h3>
+      <p>Write directly to the student using clear instructions. Use phrases such as “Select”, “Open”, “Check”, “Choose”, “Type”, “Save”, and “Review”.</p>
+      <div class="tip"><strong>Tip:</strong> If a step might be difficult to follow without a visual, add an image placeholder and an accessible description.</div>
+    </section>
+
+    <section id="structure" class="card" aria-labelledby="structure-title">
+      <h2 id="structure-title">4.0 Default guide structure</h2>
+      <h3>1. Recommended section order</h3>
+      <p>Use this structure when creating a detailed student guide.</p>
+      <ol class="step-list">
+        <li><strong>Title page:</strong> Include the guide title and audience, such as “Student Guide”.</li>
+        <li><strong>Contents:</strong> List the main numbered sections in order.</li>
+        <li><strong>Introduction:</strong> Explain what the guide is for and what the student will learn.</li>
+        <li><strong>What is it?</strong> Explain the tool, process, or support option in simple language.</li>
+        <li><strong>Getting started:</strong> List what the student needs before they begin.</li>
+        <li><strong>Step-by-step instructions:</strong> Break the process into short, sequential steps.</li>
+        <li><strong>Features or options:</strong> Use a table if students need to compare choices.</li>
+        <li><strong>Troubleshooting:</strong> Include common issues and simple next steps.</li>
+        <li><strong>Frequently asked questions:</strong> Add likely student questions and short answers.</li>
+        <li><strong>Where to get help:</strong> Include confirmed support options or placeholders.</li>
+      </ol>
+    </section>
+
+    <section id="components" class="card" aria-labelledby="components-title">
+      <h2 id="components-title">5.0 Reusable components</h2>
+
+      <h3>1. Tip callout</h3>
+      <div class="tip"><strong>Tip:</strong> Keep tips short and practical. Use them to reduce confusion, prevent common mistakes, or help students prepare.</div>
+
+      <h3>2. Note callout</h3>
+      <div class="note"><strong>Note:</strong> Use notes for neutral reminders, background information, or helpful context.</div>
+
+      <h3>3. Confirmation or caution callout</h3>
+      <div class="warning"><strong>Confirm:</strong> Use caution-style callouts when information needs checking before publication.</div>
+
+      <h3>4. Image placeholder and description</h3>
+      <div class="placeholder">[Insert screenshot or image here]</div>
+      <p><strong>Description:</strong> Briefly describe the image or screenshot so the guide remains accessible.</p>
+
+      <h3>5. Feature table</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature / Option</th>
+            <th>What it does</th>
+            <th>When to use it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Feature / Option">[Feature name]</td>
+            <td data-label="What it does">[Plain-English description]</td>
+            <td data-label="When to use it">[When this feature is helpful]</td>
+          </tr>
+          <tr>
+            <td data-label="Feature / Option">[Feature name]</td>
+            <td data-label="What it does">[Plain-English description]</td>
+            <td data-label="When to use it">[When this feature is helpful]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>6. FAQ format</h3>
+      <div class="example-box">
+        <p><strong>Q. [Question students are likely to ask]</strong></p>
+        <p><strong>A.</strong> [Short answer in plain English. Include the next step if relevant.]</p>
+      </div>
+    </section>
+
+    <section id="accessibility" class="card" aria-labelledby="accessibility-title">
+      <h2 id="accessibility-title">6.0 Accessibility rules</h2>
+      <ul>
+        <li>Use clear headings in a logical order.</li>
+        <li>Use descriptive link text. Avoid “click here”.</li>
+        <li>Provide image descriptions for all meaningful images.</li>
+        <li>Do not rely on colour alone to communicate meaning.</li>
+        <li>Keep tables simple and use clear column headings.</li>
+        <li>Use short paragraphs and enough spacing between sections.</li>
+        <li>Use plain English and explain technical terms.</li>
+        <li>Mark missing or unconfirmed information with clear placeholders.</li>
+      </ul>
+    </section>
+
+    <section id="agent-instructions" class="card" aria-labelledby="agent-title">
+      <h2 id="agent-title">7.0 Agent instructions</h2>
+      <p>Use the following instruction block inside an agent that creates student-facing guides.</p>
+      <pre><code>Use this public style page as a formatting, visual style, tone, and structure reference only.
+
+Do not treat this page as a source of procedural content, service rules, policy, eligibility criteria, contact details, or technical instructions.
+
+When creating a guide, use only:
+- the process information provided by the user,
+- approved knowledge sources connected to the agent, or
+- clearly marked placeholders where information is missing.
+
+Follow the page's preferred style:
+- clear title and guide type,
+- contents section,
+- numbered major sections,
+- short subheadings,
+- plain English explanations,
+- step-by-step instructions,
+- practical Tip callouts,
+- simple tables,
+- screenshot placeholders,
+- accessible image descriptions,
+- troubleshooting section,
+- frequently asked questions,
+- where to get help section.
+
+Match the visual feel as closely as possible:
+- clear sans-serif font,
+- warm off-white page background,
+- white content cards,
+- dark rounded borders,
+- soft colour highlights,
+- generous spacing,
+- easy-to-scan layout.
+
+Do not invent missing process steps, support contacts, policy details, access rules, or service commitments. If information is missing, insert a clear placeholder and mark it for confirmation.</code></pre>
+    </section>
+
+    <section id="testing" class="card" aria-labelledby="testing-title">
+      <h2 id="testing-title">8.0 Review checklist</h2>
+      <ul>
+        <li>The guide uses this page as a style reference only.</li>
+        <li>The content is based on the user-provided process or approved sources.</li>
+        <li>No organisation-specific details have been added unless provided by the user.</li>
+        <li>Missing information is marked with placeholders.</li>
+        <li>The tone is clear, practical, supportive, and student-friendly.</li>
+        <li>The guide includes step-by-step instructions where appropriate.</li>
+        <li>Images or screenshots have accessible descriptions.</li>
+        <li>The final guide is easy to scan on desktop and mobile.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>This page is designed to be published as a shallow public website knowledge source for an agent. It contains style guidance only and intentionally excludes internal procedures, private information, and organisation-specific references.</p>
+  </footer>
+</body>
+</html>
